@@ -1,5 +1,4 @@
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
 
 # Title and App Setup
@@ -35,3 +34,5 @@ if ingredients_list:
         session.sql(my_insert_stmt).collect()
 
         st.success('Your Smoothie is ordered!', icon="✅")
+cnx=st.connection("SnowFlake")
+session=cnx.session()
